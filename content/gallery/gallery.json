@@ -1,0 +1,10 @@
+{
+  "items": [
+    {
+      "type": "image",
+      "title": "Vault Grid",
+      "src": "./assets/img/gallery/sample1.png",
+      "caption": "Procedural green grid."
+    }
+  ]
+}

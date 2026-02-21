@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "title": "VaultSoft v1.0 Boot Sequence Complete",
+      "date": "2026-02-01",
+      "tags": [
+        "release",
+        "status"
+      ],
+      "file": "2026-02-01-vaultsoft-boot.md",
+      "excerpt": "Core systems initialized. Terminal UI online."
+    },
+    {
+      "title": "Terminal Themes Expanded",
+      "date": "2026-02-10",
+      "tags": [
+        "themes",
+        "ui"
+      ],
+      "file": "2026-02-10-themes-expanded.md",
+      "excerpt": "New blue, light-green, yellow and orange hues available."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "title": "Pip\u2011Boy Clone",
+      "date": "2025-12-08",
+      "tags": [
+        "hardware",
+        "ui",
+        "retro"
+      ],
+      "file": "2025-12-08-project-01.md",
+      "excerpt": "Initial notes and tasks."
+    },
+    {
+      "title": "CRT Shader for Web",
+      "date": "2026-01-05",
+      "tags": [
+        "graphics",
+        "css"
+      ],
+      "file": "2026-01-05-project-02.md",
+      "excerpt": "Scanlines and bloom."
+    }
+  ]
+}
