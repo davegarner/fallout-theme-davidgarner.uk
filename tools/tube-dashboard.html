@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='en' data-theme='green'>
+<head>
+<meta charset='UTF-8'><title>Tube Dashboard • VaultSoft Terminal</title><meta name='viewport' content='width=device-width, initial-scale=1'>
+<link rel='stylesheet' href='../assets/css/base.css'>
+<style>.tube-icon{width:32px;height:32px;margin-right:.5rem;filter:drop-shadow(0 0 4px var(--accent));}.line-header{display:flex;align-items:center;gap:.5rem;font-size:1.4rem;margin-bottom:.4rem;}.status-good{color:var(--accent);}.status-bad{color:#ff6b6b;}.arrivals-btn{margin-top:.6rem;display:inline-block;padding:.35rem .75rem;border:1px solid var(--accent);cursor:pointer;}.arrivals-btn:hover{background:rgba(92,255,92,.1);} </style>
+</head>
+<body>
+<div class='crt-line'></div>
+<div id='header-include'></div>
+<main class='container'>
+<h2>London Underground — Live Status Dashboard</h2>
+<div id='tubeGrid' class='grid'></div>
+</main>
+<div class='modal-backdrop' id='arrivalsModal'><div class='modal'><div class='modal-titlebar'><div class='modal-title' id='arrivalsTitle'>Arrivals</div><div class='modal-actions'><button onclick='closeArrivals()'>Close</button></div></div><div class='modal-body'><div id='arrivalsContent'>Loading…</div></div><div class='modal-footer'><span>Real-time updates via TfL Unified API</span></div></div></div>
+<div id='footer-include'></div>
+<script>
+fetch('../partials/header.html').then(r=>r.text()).then(t=>document.getElementById('header-include').innerHTML=t);
+fetch('../partials/footer.html').then(r=>r.text()).then(t=>document.getElementById('footer-include').innerHTML=t);
+const API_KEY = 'e95b49621db54b1da87fa856b2369599';
+const tubeIcons = { 'Bakerloo':`<svg class='tube-icon' viewBox='0 0 100 100'><circle cx='50' cy='50' r='32' stroke='var(--accent)' stroke-width='6' fill='none'/></svg>`, 'Central':`<svg class='tube-icon' viewBox='0 0 100 100'><rect x='20' y='35' width='60' height='30' stroke='var(--accent)' stroke-width='6' fill='none'/></svg>` };
+async function loadStatus(){ const url=`https://api.tfl.gov.uk/Line/Mode/tube/Status?app_key=${API_KEY}`; const grid=document.getElementById('tubeGrid'); try{ const res=await fetch(url); const data=await res.json(); grid.innerHTML=''; data.forEach(line=>{ const s=line.lineStatuses[0]; const good=s.statusSeverity===10; const card=document.createElement('div'); card.className='card'; card.innerHTML=`<div class='line-header'>${tubeIcons[line.name]||''}<span>${line.name}</span></div><div class='${good?'status-good':'status-bad'}'>${s.statusSeverityDescription}</div>${s.reason?`<p style='opacity:.8;margin-top:.4rem;'>${s.reason}</p>`:''}<button class='arrivals-btn' onclick="openArrivals('${line.id}','${line.name}')">View Live Arrivals</button>`; grid.appendChild(card); }); }catch(e){ grid.innerHTML='<div class="card status-bad">Error loading line status.</div>'; }}
+loadStatus();
+function openArrivals(id,name){ document.getElementById('arrivalsTitle').textContent=`Arrivals — ${name}`; document.getElementById('arrivalsModal').style.display='flex'; loadArrivals(id);} function closeArrivals(){ document.getElementById('arrivalsModal').style.display='none'; }
+let ws;
+function loadArrivals(id){ const cont=document.getElementById('arrivalsContent'); cont.innerHTML='Loading…'; try{ ws=new WebSocket(`wss://api.tfl.gov.uk/Line/${id}/Arrivals`); ws.onmessage=e=>{ const d=JSON.parse(e.data); renderArrivals(Array.isArray(d)?d:[d]); }; ws.onerror=()=>fallbackArrivals(id); }catch{ fallbackArrivals(id);} }
+async function fallbackArrivals(id){ const url=`https://api.tfl.gov.uk/Line/${id}/Arrivals?app_key=${API_KEY}`; try{ const r=await fetch(url); const d=await r.json(); renderArrivals(d);}catch{ document.getElementById('arrivalsContent').innerHTML='<p class="status-bad">Error loading arrivals.</p>'; }}
+function renderArrivals(arr){ const cont=document.getElementById('arrivalsContent'); if(!arr.length){ cont.innerHTML='<p>No arrival data.</p>'; return;} arr.sort((a,b)=>a.timeToStation-b.timeToStation); cont.innerHTML='<table style="width:100%;border-collapse:collapse;"><tr style="border-bottom:1px dashed var(--dim);"><th align="left">Train</th><th align="left">Platform</th><th align="left">ETA</th></tr>'+arr.map(a=>`<tr style='border-bottom:1px dashed var(--dim);'><td>${a.destinationName}</td><td>${a.platformName||'-'}</td><td>${Math.round(a.timeToStation/60)} min</td></tr>`).join('')+'</table>'; }
+</script>
+</body></html>
