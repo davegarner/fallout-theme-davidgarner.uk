@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>IFS Cloud Cable Car | Travel</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="Live status for the IFS Cloud Cable Car using TfL service data." />
+
+  <link rel="stylesheet" href="/assets/css/site.css" />
+  <link rel="stylesheet" href="/assets/css/cable-car-page.css" />
+
+  <script defer src="/assets/js/site-config.js"></script>
+  <script defer src="/assets/js/components.js"></script>
+  <script defer src="/assets/js/travel/cable-car.js"></script>
+</head>
+
+<body class="terminal">
+  <div id="site-header"></div>
+
+ <main class="cable-car-section">
+
+  <h1>Cable Car</h1>
+
+  <p class="cable-car-intro">
+    Enjoy panoramic views on our scenic cable car service linking the valley
+    with the summit.
+  </p>
+
+  <section aria-labelledby="route-info">
+    <h2 id="route-info">Route & Journey</h2>
+    <p><strong>Route:</strong> Valley Station → Summit Station</p>
+    <p><strong>Journey time:</strong> Approximately 7 minutes</p>
+  </section>
+
+  <section aria-labelledby="schedule">
+    <h2 id="schedule">Operating Times</h2>
+
+    <div class="schedule-table-wrapper">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th scope="col">Day</th>
+            <th scope="col">First Departure</th>
+            <th scope="col">Last Departure</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Mon–Fri</td><td>08:00</td><td>20:00</td></tr>
+          <tr><td>Sat</td><td>09:00</td><td>22:00</td></tr>
+          <tr><td>Sun</td><td>09:00</td><td>18:00</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="pricing">
+    <h2 id="pricing">Ticket Prices</h2>
+    <ul class="price-list">
+      <li><span>Adult return</span><span class="price-tag">£14.00</span></li>
+      <li><span>Child return</span><span class="price-tag">£8.00</span></li>
+      <li><span>Family (2+2)</span><span class="price-tag">£36.00</span></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="accessibility">
+    <h2 id="accessibility">Accessibility</h2>
+    <p>
+      Cabins are wheelchair accessible. Assistance is available at all stations.
+      Please notify staff if you need help boarding.
+    </p>
+  </section>
+
+  <button
+    id="cableCarBookingBtn"
+    class="cable-car-btn"
+    aria-label="Book cable car tickets"
+  >
+    Book Cable Car Tickets
+  </button>
+
+  <p id="cableCarError" class="cable-car-error" role="alert"></p>
+<script src="/assets/js/cable-car.js" defer></script>
+</main>
+
+
+  <div id="site-footer"></div>
+</body>
+</html>

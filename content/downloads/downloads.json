@@ -1,11 +1,25 @@
 {
-  "files": [
+  "items": [
     {
-      "name": "Sample Document (PDF)",
-      "href": "../assets/downloads/sample.pdf",
-      "size": "12.0KB",
-      "sha256": "DEMO",
-      "notes": "Placeholder."
+      "title": "Operator Manual V1 (PDF)",
+      "url": "/assets/downloads/operator-manual-v1.pdf",
+      "size": 1691,
+      "sha256": "2a9e07b76ff191b2105b03efb4de38f3fbe4e3e751269b114e87d3c618767a9f",
+      "notes": "Sample PDF manual bundled with Version 1."
+    },
+    {
+      "title": "Toolkit Sample V1 (ZIP)",
+      "url": "/assets/downloads/toolkit-sample-v1.zip",
+      "size": 181,
+      "sha256": "6d720aa21110fe6a621cf3c80c77791565b90c7239d86d992f0a44b076e57235",
+      "notes": "Sample ZIP archive demonstrating checksum and size display."
+    },
+    {
+      "title": "ASCII Pack V1 (TXT)",
+      "url": "/assets/downloads/ascii-pack-v1.txt",
+      "size": 90,
+      "sha256": "2d311fc5cb972211dde68b8c2b5b15f8aaa520115b5761d740f17460ecfb7f52",
+      "notes": "Placeholder text download that can be replaced by any asset."
     }
   ]
 }

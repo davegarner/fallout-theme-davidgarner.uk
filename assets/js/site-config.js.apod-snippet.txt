@@ -1,0 +1,1 @@
+Replace {href:'/space/placeholder-02.html',label:'Placeholder 02'} with {href:'/space/apod.html',label:'APOD'} in assets/js/site-config.js.

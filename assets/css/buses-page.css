@@ -1,0 +1,87 @@
+/* Bus page specific layout refinements */
+.bus-summary-board-grid .summary-board-card {
+  min-height: auto;
+}
+
+.bus-summary-board-grid .summary-board-item {
+  align-items: start;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.35rem 1rem;
+  padding-bottom: 0.8rem;
+}
+
+.bus-summary-board-grid .summary-main {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.bus-summary-board-grid .summary-line-name {
+  align-items: flex-start;
+  line-height: 1.15;
+  min-height: 1.5rem;
+}
+
+.bus-summary-board-grid .summary-line-name .status-pill {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.16rem 0.52rem;
+}
+
+.bus-summary-board-grid .summary-destination {
+  margin-left: 0;
+  padding-left: 0.15rem;
+  line-height: 1.25;
+  font-size: 0.96rem;
+}
+
+.bus-summary-board-grid .summary-time {
+  align-self: start;
+  line-height: 1.15;
+  padding-top: 0.1rem;
+  font-size: 1rem;
+  text-align: right;
+}
+
+.bus-summary-board-grid .summary-board-card h3 {
+  margin-bottom: 1rem;
+}
+
+.station-result-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+  align-items: center;
+}
+
+.station-result-secondary {
+  display: block;
+}
+
+.station-result .station-mode-badge {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  padding: 0.12rem 0.42rem;
+  min-width: 0;
+}
+
+.station-result .station-mode-badge-bus {
+  border-color: rgba(141,255,114,.28);
+}
+
+.station-result .station-mode-badge-tube,
+.station-result .station-mode-badge-elizabeth-line,
+.station-result .station-mode-badge-dlr,
+.station-result .station-mode-badge-overground {
+  border-color: rgba(141,255,114,.18);
+  opacity: 0.9;
+}
+
+@media (max-width: 760px) {
+  .bus-summary-board-grid .summary-board-item {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.4rem 0.8rem;
+  }
+}

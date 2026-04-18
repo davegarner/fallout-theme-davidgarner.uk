@@ -1,0 +1,10 @@
+window.SecureConfig={
+  tenantId:'38774646-7162-4679-a260-7b39eb0ba014',
+  clientId:'e5dd704f-0e5b-43fb-bf53-c427b19d2968',
+  authorityBase:'https://login.microsoftonline.com',
+  redirectPath:'/secure/login.html',
+  postLogoutRedirectPath:'/secure/login.html',
+  cacheLocation:'sessionStorage',
+  loginRequest:{scopes:['openid','profile','email']},
+  allowedRoles:[]
+};

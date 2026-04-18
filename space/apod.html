@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark"><meta name="theme-color" content="#061008">
+  <title>Vault-Tec Terminal Network | APOD</title>
+  <meta name="description" content="NASA Astronomy Picture of the Day viewer with direct browser queries to the official APOD API.">
+  <link rel="stylesheet" href="/assets/css/site.css"><link rel="stylesheet" href="/assets/css/apod-page.css">
+  <script defer src="/assets/js/site-config.js"></script><script defer src="/assets/js/config/transport-config.js"></script>
+  <script defer src="/assets/js/components.js"></script><script defer src="/assets/js/lib/markdown.js"></script>
+  <script defer src="/assets/js/modal.js"></script><script defer src="/assets/js/content.js"></script><script defer src="/assets/js/app.js"></script>
+  <script defer src="/assets/js/space/apod.js"></script>
+</head><body><div class="site-shell"><div class="header-wrap" id="site-header"></div><div id="site-subnav" data-section="space" class="header-wrap"></div>
+<main class="layout-grid"><div id="pageAlert"></div><section class="panel content-panel">
+<div class="page-title"><div><h1>APOD</h1><p>Direct browser query page for NASA Astronomy Picture of the Day. Load today’s image, browse a specific date, or pull a random APOD using the official NASA API.</p></div></div>
+<div class="apod-toolbar panel content-panel"><div class="apod-controls">
+<div class="apod-field"><label for="apodApiKey">NASA API key</label><input id="apodApiKey" type="text" autocomplete="off" spellcheck="false" placeholder="Leave blank to use DEMO_KEY"></div>
+<div class="apod-field"><label for="apodDate">Date</label><input id="apodDate" type="date"></div></div>
+<div class="apod-actions"><button class="btn" id="apodLoadBtn" type="button">Load Date</button><button class="btn" id="apodTodayBtn" type="button">Today</button><button class="btn" id="apodRandomBtn" type="button">Random</button><button class="btn" id="apodSaveKeyBtn" type="button">Save Key Locally</button><button class="btn" id="apodClearKeyBtn" type="button">Clear Saved Key</button></div>
+<p class="apod-note">This page queries the NASA APOD API directly from the browser. If you plan to use it heavily, save your own NASA API key instead of relying on DEMO_KEY.</p></div>
+<div class="apod-grid"><section class="panel content-panel apod-media-panel"><div class="page-title"><div><h2 id="apodTitle">Astronomy Picture of the Day</h2><p id="apodMetaLine">Waiting for first API response…</p></div></div><div id="apodMediaWrap" class="apod-media-wrap"><div class="apod-empty">Choose a date, press <strong>Today</strong>, or fetch a random APOD.</div></div><div class="apod-link-row"><a class="btn" id="apodHdLink" href="#" target="_blank" rel="noopener noreferrer">Open HD / Source</a><button class="btn" id="apodCopyLinkBtn" type="button">Copy API URL</button></div></section>
+<section class="panel content-panel apod-side-panel"><div class="page-title"><div><h2>Details</h2><p>APOD metadata returned by the API.</p></div></div><dl class="apod-meta-grid" id="apodMetaGrid"><div class="apod-meta-item"><dt>Status</dt><dd id="apodStatus">Ready.</dd></div><div class="apod-meta-item"><dt>Date</dt><dd id="apodDateValue">—</dd></div><div class="apod-meta-item"><dt>Media Type</dt><dd id="apodMediaType">—</dd></div><div class="apod-meta-item"><dt>Copyright</dt><dd id="apodCopyright">—</dd></div><div class="apod-meta-item"><dt>Service Version</dt><dd id="apodServiceVersion">—</dd></div><div class="apod-meta-item"><dt>Source URL</dt><dd id="apodUrl">—</dd></div></dl><div class="hr"></div><div class="page-title"><div><h2>Explanation</h2><p>API response text.</p></div></div><div id="apodExplanation" class="apod-explanation"><p class="apod-empty">APOD explanation text will appear here.</p></div></section></div>
+</section></main><div class="footer-wrap" id="site-footer"></div></div></body></html>

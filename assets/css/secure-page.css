@@ -1,0 +1,7 @@
+body[data-secure-page] #site-subnav {
+  display: none;
+}
+
+body[data-secure-page].secure-nav-authenticated #site-subnav {
+  display: block;
+}

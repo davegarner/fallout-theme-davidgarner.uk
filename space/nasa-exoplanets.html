@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#061008">
+  <title>Vault-Tec Terminal Network | NASA Exoplanets</title>
+  <meta name="description" content="Direct NASA Exoplanet Archive query interface with client-side search, filtering, charts and detailed exoplanet information.">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/nasa-exoplanets-page.css">
+  <script defer src="/assets/js/site-config.js"></script>
+  <script defer src="/assets/js/config/transport-config.js"></script>
+  <script defer src="/assets/js/components.js"></script>
+  <script defer src="/assets/js/lib/markdown.js"></script>
+  <script defer src="/assets/js/modal.js"></script>
+  <script defer src="/assets/js/content.js"></script>
+  <script defer src="/assets/js/app.js"></script>
+  <script defer src="/assets/js/space/nasa-exoplanets.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <div class="header-wrap" id="site-header"></div>
+    <div id="site-subnav" data-section="space" class="header-wrap"></div>
+    <main class="layout-grid">
+      <div id="pageAlert"></div>
+      <section class="panel content-panel">
+        <div class="page-title"><div><h1>NASA Exoplanets</h1><p>Search confirmed exoplanets using a full in-browser filtered dataset from the NASA Exoplanet Archive, then inspect details, charts, and export the current filtered results.</p></div></div>
+        <div class="exo-summary">
+          <div class="exo-stat"><div class="metric-label">Confirmed planets in PSCompPars</div><div class="exo-stat-value" id="exoTotalPlanets">…</div></div>
+          <div class="exo-stat"><div class="metric-label">Transit detections</div><div class="exo-stat-value" id="exoTransitPlanets">…</div></div>
+          <div class="exo-stat"><div class="metric-label">Latest discovery year</div><div class="exo-stat-value" id="exoLatestDiscoveryYear">…</div></div>
+          <div class="exo-stat"><div class="metric-label">Rows currently visible</div><div class="exo-stat-value" id="exoLoadedRows">…</div></div>
+        </div>
+        <div class="hr"></div>
+        <div class="exo-toolbar">
+          <div class="exo-controls">
+            <div class="exo-field"><label for="exoSearch">Planet or host search</label><input id="exoSearch" autocomplete="off" autocapitalize="off" spellcheck="false" type="text" placeholder="e.g. Kepler22, Kepler-22 b, TRAPPIST1, HD149026"></div>
+            <div class="exo-field"><label for="exoDiscoveryMethod">Discovery method (exact or partial)</label><input id="exoDiscoveryMethod" autocomplete="off" autocapitalize="off" spellcheck="false" type="text" list="exoDiscoveryMethodList" placeholder="e.g. Transit, Radial Velocity, Imaging"><datalist id="exoDiscoveryMethodList"><option value="Transit"></option><option value="Radial Velocity"></option><option value="Imaging"></option><option value="Microlensing"></option><option value="Transit Timing Variations"></option><option value="Pulsar Timing"></option><option value="Pulsation Timing Variations"></option><option value="Orbital Brightness Modulation"></option><option value="Astrometry"></option><option value="Eclipse Timing Variations"></option><option value="Disk Kinematics"></option></datalist></div>
+            <div class="exo-field"><label for="exoYearFrom">Discovery year from</label><input id="exoYearFrom" autocomplete="off" type="number" min="1988" max="2100" step="1" placeholder="e.g. 2024"></div>
+            <div class="exo-field"><label for="exoYearTo">Discovery year to</label><input id="exoYearTo" autocomplete="off" type="number" min="1988" max="2100" step="1" placeholder="e.g. 2026"></div>
+            <div class="exo-field"><label for="exoRadiusMin">Radius min (R⊕)</label><input id="exoRadiusMin" autocomplete="off" type="number" min="0" step="0.1" placeholder="e.g. 0.5"></div>
+            <div class="exo-field"><label for="exoRadiusMax">Radius max (R⊕)</label><input id="exoRadiusMax" autocomplete="off" type="number" min="0" step="0.1" placeholder="e.g. 2.5"></div>
+            <div class="exo-field"><label for="exoEqtMin">Eq. temp min (K)</label><input id="exoEqtMin" autocomplete="off" type="number" min="0" step="1" placeholder="e.g. 180"></div>
+            <div class="exo-field"><label for="exoEqtMax">Eq. temp max (K)</label><input id="exoEqtMax" autocomplete="off" type="number" min="0" step="1" placeholder="e.g. 310"></div>
+            <div class="exo-field"><label for="exoInsolMin">Insolation min (Earth flux)</label><input id="exoInsolMin" autocomplete="off" type="number" min="0" step="0.01" placeholder="e.g. 0.25"></div>
+            <div class="exo-field"><label for="exoInsolMax">Insolation max (Earth flux)</label><input id="exoInsolMax" autocomplete="off" type="number" min="0" step="0.01" placeholder="e.g. 2.0"></div>
+            <div class="exo-field"><label for="exoSort">Sort order</label><select id="exoSort"><option value="disc_year_desc">Discovery year ↓</option><option value="disc_year_asc">Discovery year ↑</option><option value="planet_name">Planet name A–Z</option><option value="host_name">Host name A–Z</option><option value="mass_desc">Mass ↓</option><option value="radius_desc">Radius ↓</option><option value="period_asc">Orbital period ↑</option></select></div>
+            <div class="exo-field"><label for="exoLimit">Visible row limit</label><select id="exoLimit"><option value="25">25</option><option value="50" selected>50</option><option value="100">100</option><option value="250">250</option><option value="500">500</option></select></div>
+          </div>
+          <div class="exo-toolbar-actions"><button class="btn" id="exoSearchBtn" type="button">Apply Filters</button><button class="btn" id="exoResetBtn" type="button">Reset Filters</button><button class="btn" id="exoRecentBtn" type="button">Recent Discoveries</button><button class="btn" id="exoTransitBtn" type="button">Transit Planets</button><button class="btn" id="exoHabitableBtn" type="button">Habitability-Style Preset</button><button class="btn" id="exoAllBtn" type="button">Show Broad List</button></div>
+          <p class="exo-note">This build force-clears any browser-restored filter values on first load before applying local filtering.</p>
+        </div>
+        <div class="hr"></div>
+        <section class="panel content-panel exo-chart-panel"><div class="page-title"><div><h2>Planet stats charts</h2><p>Charts update from the currently filtered result set.</p></div></div><div class="exo-chart-grid"><article class="exo-chart-card"><h3>Discovery methods</h3><canvas id="exoMethodChart" width="600" height="280"></canvas></article><article class="exo-chart-card"><h3>Discoveries by year</h3><canvas id="exoYearChart" width="600" height="280"></canvas></article><article class="exo-chart-card"><h3>Equilibrium temperature distribution</h3><canvas id="exoTempChart" width="600" height="280"></canvas></article><article class="exo-chart-card"><h3>Top discovery facilities</h3><canvas id="exoFacilityChart" width="600" height="280"></canvas></article><article class="exo-chart-card"><h3>Top discovery telescopes</h3><canvas id="exoTelescopeChart" width="600" height="280"></canvas></article><article class="exo-chart-card exo-chart-card-wide exo-scatter-wrap"><h3>Mass vs radius</h3><div class="exo-scatter-container"><canvas id="exoScatterChart" width="1200" height="380"></canvas><div id="exoScatterTooltip" class="exo-scatter-tooltip" hidden></div></div></article></div></section>
+        <div class="hr"></div>
+        <div class="exo-grid"><div class="exo-panel-stack"><section class="panel content-panel"><div class="page-title"><div><h2>Live results</h2><p><span id="exoResultCount">0</span> row(s) currently visible.</p></div></div><div class="exo-results-wrap"><table class="exo-table" aria-describedby="exoStatus"><thead><tr><th>Planet</th><th>Host</th><th>Year</th><th>Method</th><th>Mass (M⊕)</th><th>Radius (R⊕)</th><th>Period (days)</th><th>Eq. Temp (K)</th><th>Facility</th></tr></thead><tbody id="exoResultsBody"><tr><td colspan="9" class="exo-empty">Loading confirmed exoplanets…</td></tr></tbody></table></div></section><section class="panel content-panel"><div class="page-title"><div><h2>Current filter summary</h2><p>The current client-side filter expression and export actions.</p></div></div><div class="exo-export-actions"><button class="btn" id="exoCopyUrlBtn" type="button">Copy Proxy Source URL</button><button class="btn" id="exoCsvBtn" type="button">Download CSV</button><button class="btn" id="exoJsonBtn" type="button">Download JSON</button></div><p class="exo-sql-label">Current source query</p><textarea id="exoSqlBox" class="exo-sql-box" readonly></textarea><p id="exoStatus" class="exo-status">Ready.</p></section></div><section class="panel content-panel"><div class="page-title"><div><h2>Selected exoplanet details</h2><p>Click a row to inspect richer composite parameters for that planet.</p></div></div><div id="exoDetails"><p class="exo-empty">Select an exoplanet row to inspect detailed values.</p></div></section></div>
+      </section>
+    </main>
+    <div class="footer-wrap" id="site-footer"></div>
+  </div>
+</body>
+</html>

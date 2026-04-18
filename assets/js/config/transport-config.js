@@ -1,0 +1,10 @@
+window.TransportConfig={
+  tfl:{
+    appKey:'e95b49621db54b1da87fa856b2369599',
+    appId:''
+  },
+  tickernet:{
+    apiKey:'96215e89af254fb0b2bd554e2b9630fb'
+  },
+  refreshMs:60000
+};

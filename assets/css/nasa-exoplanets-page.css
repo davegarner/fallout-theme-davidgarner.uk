@@ -1,0 +1,36 @@
+
+.exo-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:1rem; }
+.exo-panel-stack { display:grid; gap:1rem; }
+.exo-controls { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.75rem; }
+.exo-field { display:grid; gap:.35rem; }
+.exo-field label, .exo-toolbar .metric-label, .exo-note, .exo-sql-label { font-size:.82rem; opacity:.86; }
+.exo-field input, .exo-field select, .exo-sql-box { width:100%; box-sizing:border-box; background:rgba(0,0,0,.25); border:1px solid rgba(131,255,163,.28); color:inherit; padding:.6rem .7rem; font:inherit; }
+.exo-toolbar, .exo-summary { display:grid; gap:.75rem; }
+.exo-toolbar-actions, .exo-export-actions { display:flex; flex-wrap:wrap; gap:.65rem; }
+.exo-summary { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.exo-stat { border:1px solid rgba(131,255,163,.18); padding:.9rem; min-height:80px; }
+.exo-stat-value { font-size:1.45rem; margin-top:.35rem; }
+.exo-results-wrap { overflow:auto; max-height:560px; border:1px solid rgba(131,255,163,.15); }
+.exo-table { width:100%; border-collapse:collapse; min-width:980px; }
+.exo-table th, .exo-table td { padding:.55rem .7rem; border-bottom:1px solid rgba(131,255,163,.12); text-align:left; vertical-align:top; }
+.exo-table th { position:sticky; top:0; background:#07130a; z-index:1; }
+.exo-table tbody tr { cursor:pointer; }
+.exo-table tbody tr:hover, .exo-table tbody tr.is-active { background:rgba(131,255,163,.08); }
+.exo-detail-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem 1rem; }
+.exo-detail-item { border-bottom:1px dashed rgba(131,255,163,.12); padding-bottom:.45rem; }
+.exo-detail-item dt { font-size:.82rem; opacity:.8; }
+.exo-detail-item dd { margin:.25rem 0 0; }
+.exo-status, .exo-note { margin-top:.5rem; }
+.exo-sql-box { min-height:115px; resize:vertical; }
+.exo-empty { padding:1rem; opacity:.85; }
+.exo-chart-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.exo-chart-card { border:1px solid rgba(131,255,163,.18); padding:.9rem; min-height:340px; }
+.exo-chart-card-wide { grid-column:1 / -1; }
+.exo-chart-card h3 { margin-top:0; }
+.exo-chart-card canvas { width:100%; height:auto; display:block; background:rgba(0,0,0,.12); border:1px solid rgba(131,255,163,.08); }
+.exo-scatter-container { position:relative; }
+.exo-scatter-tooltip { position:absolute; z-index:5; pointer-events:none; min-width:180px; max-width:260px; padding:.55rem .65rem; background:rgba(4,16,8,.96); color:rgba(131,255,163,.98); border:1px solid rgba(131,255,163,.45); box-shadow:0 0 0 1px rgba(131,255,163,.08), 0 10px 20px rgba(0,0,0,.35); font-size:.82rem; line-height:1.35; }
+.exo-scatter-tooltip strong { display:block; margin-bottom:.25rem; }
+@media (max-width:1100px){ .exo-grid { grid-template-columns:1fr; } }
+@media (max-width:860px){ .exo-controls, .exo-summary, .exo-detail-grid, .exo-chart-grid { grid-template-columns:1fr 1fr; } }
+@media (max-width:620px){ .exo-controls, .exo-summary, .exo-detail-grid, .exo-chart-grid { grid-template-columns:1fr; } .exo-chart-card-wide { grid-column:auto; } }

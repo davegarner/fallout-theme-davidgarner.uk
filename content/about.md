@@ -1,3 +1,3 @@
-# About VaultSoft
+# About This Terminal
 
-This page is Markdown. Edit `content/about.md`.
+This site is a **static HTML / CSS / JavaScript** scaffold designed for a Fallout-inspired operator experience and packaged here as **Version 1**.

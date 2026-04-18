@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "title": "Static Content Engine",
+      "date": "2026-04-02",
+      "tag": "Core",
+      "summary": "A JSON + Markdown loader for news, projects, downloads, gallery items, and markdown panels.",
+      "file": "/content/projects/static-content-engine.md"
+    },
+    {
+      "title": "Tube Status Monitor",
+      "date": "2026-04-02",
+      "tag": "Travel",
+      "summary": "Multi-mode TfL line status dashboard with expandable disruption rows.",
+      "file": "/content/projects/tube-status-monitor.md"
+    },
+    {
+      "title": "Departure Boards Console",
+      "date": "2026-04-02",
+      "tag": "Travel",
+      "summary": "Station search and live platform prediction boards powered by TfL StopPoint search and arrivals.",
+      "file": "/content/projects/departure-boards-console.md"
+    }
+  ]
+}

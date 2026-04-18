@@ -1,10 +1,22 @@
 {
   "items": [
     {
-      "type": "image",
-      "title": "Vault Grid",
-      "src": "./assets/img/gallery/sample1.png",
-      "caption": "Procedural green grid."
+      "title": "Vault Status Display",
+      "summary": "Placeholder poster / screenshot style image.",
+      "image": "/assets/images/gallery/gallery-1.png",
+      "detailsFile": "/content/gallery/gallery-01.md"
+    },
+    {
+      "title": "Departure Boards Snapshot",
+      "summary": "Second sample image entry for the gallery.",
+      "image": "/assets/images/gallery/gallery-2.png",
+      "detailsFile": "/content/gallery/gallery-02.md"
+    },
+    {
+      "title": "ASCII Relay Diagram",
+      "summary": "ASCII art example rendered through the same gallery system.",
+      "asciiPreview": " [ SIGNAL RELAY ]\\n ====>>>> TERMINAL ",
+      "detailsFile": "/content/gallery/gallery-03.md"
     }
   ]
 }

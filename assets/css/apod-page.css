@@ -1,0 +1,20 @@
+
+.apod-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:1rem; }
+.apod-toolbar { display:grid; gap:.75rem; margin-bottom:1rem; }
+.apod-controls { display:grid; grid-template-columns:1.2fr .8fr; gap:.75rem; }
+.apod-field { display:grid; gap:.35rem; }
+.apod-field label, .apod-note { font-size:.82rem; opacity:.86; }
+.apod-field input { width:100%; box-sizing:border-box; background:rgba(0,0,0,.25); border:1px solid rgba(131,255,163,.28); color:inherit; padding:.6rem .7rem; font:inherit; }
+.apod-actions, .apod-link-row { display:flex; flex-wrap:wrap; gap:.65rem; }
+.apod-media-wrap { min-height:420px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(131,255,163,.15); background:rgba(0,0,0,.12); padding:.75rem; }
+.apod-empty { opacity:.85; text-align:center; }
+.apod-figure { margin:0; width:100%; }
+.apod-image, .apod-thumb { width:100%; height:auto; display:block; border:1px solid rgba(131,255,163,.15); }
+.apod-video-shell { display:grid; gap:.75rem; width:100%; }
+.apod-video-frame { width:100%; min-height:420px; border:1px solid rgba(131,255,163,.15); background:#000; }
+.apod-meta-grid { display:grid; gap:.75rem; }
+.apod-meta-item { border-bottom:1px dashed rgba(131,255,163,.12); padding-bottom:.45rem; }
+.apod-meta-item dt { font-size:.82rem; opacity:.8; }
+.apod-meta-item dd { margin:.25rem 0 0; overflow-wrap:anywhere; }
+.apod-explanation p { margin-top:0; }
+@media (max-width:980px){ .apod-grid, .apod-controls { grid-template-columns:1fr; } }

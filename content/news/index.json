@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "title": "Terminal Site Initialization Complete",
+      "date": "2026-04-02",
+      "tag": "System",
+      "summary": "A sample launch notice confirming the static terminal site is online and ready for content.",
+      "file": "/content/news/terminal-site-initialization.md"
+    },
+    {
+      "title": "Routes Departure Boards Activated",
+      "date": "2026-04-02",
+      "tag": "Travel",
+      "summary": "The Travel section now includes client-side station search and live departure boards from the TfL Unified API.",
+      "file": "/content/news/routes-departure-boards-activated.md"
+    },
+    {
+      "title": "Version 1 Release",
+      "date": "2026-04-02",
+      "tag": "Release",
+      "summary": "This package captures the full static site as Version 1.",
+      "file": "/content/news/version-1-release.md"
+    }
+  ]
+}
